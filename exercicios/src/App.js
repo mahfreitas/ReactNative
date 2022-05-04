@@ -19,6 +19,8 @@ Quando é exportado como padrão (como o Componente Oficial), eu posso escolher 
 */
 import  CompPadrao ,{ Comp1 , Comp2 } from './componentes/Multi'
 import  Primeiro from './componentes/Primeiro'
+import MaiorMenor from './componentes/MinMax'
+import Desafio from './componentes/DesafioAleatorio'
 
 
 /**
@@ -72,22 +74,37 @@ export default() => {
 
 export default () => (
     // par de chaves dentro de componentes textual é interpretado como JS
-    // <Text> { 1 + 1 } </Text> 
+    // <Text> { 1 + 1 } </Text> - pelo visto isso serve para view tb?
     <View style={style.App}>
+        {/**Tudo que esta dentro de chaves é lido como um comentário JS
+         * Tudo isso dentro da view são instancias de componentes
+         * Se eu quiser passar parâmetros números uso as chaves , que entende como JS.
+         * passar parametros é como passar atributos em HTML, mas não esquece de usar chaves se não for string.
+         */}
+        <MaiorMenor Max="3" Min="1"/>
+        <MaiorMenor Max={12} Min={6}/>
         <CompPadrao></CompPadrao>
         <Comp1></Comp1>
         <Comp2></Comp2>
         <Primeiro />
+        {/**
+         * Cada componente criado pode ser instanciado em vários lugares diferentes. Nesta View por exempo eu tenho a instância de vários componentes diferentes e também componentes repetidos.
+         */}
+
+        <Desafio Start={100} End={200}></Desafio>
+
     </View>
     
 )
 
 // Dentro dos parametros do create passar um objeto, por isso tem o par de chaves
+// CRIAÇÃO de ESTILO LOCAL? Porque criar estilo local e não criar tudo global?
 const style = StyleSheet.create({
     App: {
         // backgroundColor: '#A00',
         flexGrow: 1,
         justifyContent: "center" ,// eixo principal - a coluna para mobile
-        alignItems: "center" // eixo cruzado - a linha para 
+        alignItems: "center", // eixo cruzado - a linha para 
+        padding : 20
     }
 })
