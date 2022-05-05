@@ -25,6 +25,7 @@ export default StyleSheet.create({
 dentro do componente estilo eu tenho OBJETOS ? 
 funcões são objetos objetos são funções em JS
 Quando eu uso Estilo.Objeto? isso é um método?
+Quando eu uso chaves em estilo é porque vou passar a sintaxe de objeto?
 
 
 */

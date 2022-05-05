@@ -5,50 +5,53 @@ import React from 'react'
 /*
 View is a container that supports layout with flexbox, style, some touch handling, and accessibility controls
 */
+
 //importamos a VIEW para usar a tag como um container
 import { View  , StyleSheet} from 'react-native'
 
 /*
-Usado para usar componentes textuais
+Usado para usar componentes textuais em jsx
 import { Text } from 'react-native'
 */
 
 /*
 Quando os componentes não foram exportados como padrão,(como em Multi os componentes 1 e 2) precisa usar o par de chaves para ler e o nome importa, precisa ser o mesmo nome do componente da função nomeada.
-Quando é exportado como padrão (como o Componente Oficial), eu posso escolher como vou chamar a importação desse componente( no caso X)
+Quando é exportado como padrão (como o Componente Oficial), eu posso escolher como vou chamar a importação desse componente( no caso Primeiro)
 */
 import  CompPadrao ,{ Comp1 , Comp2 } from './componentes/Multi'
 import  Primeiro from './componentes/Primeiro'
 import MaiorMenor from './componentes/MinMax'
 import Desafio from './componentes/DesafioAleatorio'
+import Title from './componentes/Titulo'
+import Botao from './componentes/Botao'
 
 
-/**
- * Algumas maneiras( sintaxes ) de fazer as declarações / 
- */
-// export default () =><View> <Primeiro></Primeiro></View>
 
-// export default () => <View><Primeiro/></View>
+// Algumas maneiras( sintaxes ) de fazer as declarações / 
+ 
+/* Usando Arrow Function
+    export default () =><View> <Primeiro></Primeiro></View>
+*/
+
+/* Em um componente vazio pode abrir e fechar na mesma tag
+export default () => <View><Primeiro/></View>
+*/
 
 /* Function Declaration
-
 function App(){
     return <Text>Primeiro Componente</Text>
 }
-
 export default App
 */
 
 /* Function Expression
-
  const App = function(){
     return <Text>Primeiro Componente!</Text>
 }
-
 export default App
 */
 
-/*
+/* Função não nomeada?
 export default function () {
     return <Text>Primeiro Componente!!</Text>
 }
@@ -75,23 +78,38 @@ export default() => {
 export default () => (
     // par de chaves dentro de componentes textual é interpretado como JS
     // <Text> { 1 + 1 } </Text> - pelo visto isso serve para view tb?
-    <View style={style.App}>
+    <View style={style.App}> 
+
+
+        <Title principal="Cadastro de Produtos" secundario="Tela de casdastro"></Title>
+
+        <Botao></Botao>
+
+
+
         {/**Tudo que esta dentro de chaves é lido como um comentário JS
          * Tudo isso dentro da view são instancias de componentes
          * Se eu quiser passar parâmetros números uso as chaves , que entende como JS.
          * passar parametros é como passar atributos em HTML, mas não esquece de usar chaves se não for string.
          */}
+
+         {/*
         <MaiorMenor Max="3" Min="1"/>
         <MaiorMenor Max={12} Min={6}/>
         <CompPadrao></CompPadrao>
         <Comp1></Comp1>
         <Comp2></Comp2>
         <Primeiro />
+        */}
+
         {/**
          * Cada componente criado pode ser instanciado em vários lugares diferentes. Nesta View por exempo eu tenho a instância de vários componentes diferentes e também componentes repetidos.
          */}
 
-        <Desafio Start={100} End={200}></Desafio>
+        {
+         //   <Desafio Start={100} End={200}></Desafio>
+        }
+        
 
     </View>
     
@@ -99,6 +117,7 @@ export default () => (
 
 // Dentro dos parametros do create passar um objeto, por isso tem o par de chaves
 // CRIAÇÃO de ESTILO LOCAL? Porque criar estilo local e não criar tudo global?
+// se é uma const , que não pode ser alterada porque eu consegui alterar várias vezes essas coisas aqui dentro, R: Ela só não pode deixar de ser StyleSheet?
 const style = StyleSheet.create({
     App: {
         // backgroundColor: '#A00',

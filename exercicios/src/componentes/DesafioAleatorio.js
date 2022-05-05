@@ -2,6 +2,13 @@ import React from 'react'
 import { Text } from 'react-native'
 import Estilo from './estilo'
 
+
+// MEU CÓDIGO DO DESAFIO - O QUE ESTÁ ERRADO?
+/**
+ * Se propriedades são somente para leitura, é errado eu usar ela diretamente na função math e retornar na tela?
+ * Nesse caso eu também deveria ter criado uma nova variável para usar esses valores?
+ */
+
 export default (props)=>{
     // essa função veio da documentação do JS no site MDN 
     //Math.floor(Math.random()* (props.End - props.Start) + props.Start)
@@ -9,6 +16,15 @@ export default (props)=>{
     return(<Text style={Estilo.txtGG}>{Math.floor(Math.random()* (props.End - props.Start) + props.Start)}</Text>)
 
 }
+
+//PROPRIEADES SÃO SOMENTE LEITURA // PROPRIEDADES SÃO SOMENTE LEITURA
+// você não consegue mexer nos atributos que você recebeu a partir de props
+
+/*
+    Não fazer alterações diretamente nas propriedades e nem em eventuais variáveis que receberem o valor de props.(pois essas aceitam alterações)
+    Para fazer qualquer tipo de processamento crie novas variáveis, mas tenha em mente que essas variáveis não são REATIVAS, quer dizer que mesmo que você altere a váriável não vai acontecer nenhuma alteração no seu componente(na interface gráfica, no que nós vemos, no que é mostrado na tela)
+    Para alterar o que é mostrado na View do seu componente , são outras soluções (Estado de um componente baseado em classe ou hooks- não estudado ainda)
+ */
 
 /** Resolução do professor 
 
