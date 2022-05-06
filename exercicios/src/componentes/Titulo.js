@@ -9,6 +9,8 @@ export default (props) => ( //usando parentes pq não vai ser necessário retorn
     </View>
 )
 
+// ????? Quando eu uso a VIEW não preciso de return, ela já é um return implicito?
+
 //  NÃO É POSSÍVEL RETORNAR MULTIPLOS ELEMENTOS  JSX A PARTIR DE UM COMPONENTE
 //  COMO CONTORNAR ? UMA POSSIBILIDADE É FRAGMENT
 
