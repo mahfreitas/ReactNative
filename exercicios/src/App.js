@@ -7,7 +7,7 @@ View is a container that supports layout with flexbox, style, some touch handlin
 */
 
 //importamos a VIEW para usar a tag como um container
-import { View  , StyleSheet} from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 /*
 Usado para usar componentes textuais em jsx
@@ -18,17 +18,21 @@ import { Text } from 'react-native'
 Quando os componentes não foram exportados como padrão,(como em Multi os componentes 1 e 2) precisa usar o par de chaves para ler e o nome importa, precisa ser o mesmo nome do componente da função nomeada.
 Quando é exportado como padrão (como o Componente Oficial), eu posso escolher como vou chamar a importação desse componente( no caso Primeiro)
 */
-import  CompPadrao ,{ Comp1 , Comp2 } from './componentes/Multi'
-import  Primeiro from './componentes/Primeiro'
-import MaiorMenor from './componentes/MinMax'
-import Desafio from './componentes/DesafioAleatorio'
-import Title from './componentes/Titulo'
-import Botao from './componentes/Botao'
+
+//import CompPadrao, { Comp1, Comp2 } from './componentes/Multi'
+//import Primeiro from './componentes/Primeiro'
+//import MaiorMenor from './componentes/MinMax'
+//import Desafio from './componentes/DesafioAleatorio'
+//import Title from './componentes/Titulo'
+//import PrimeiroBotao from './componentes/Botao'
+//import Contador from './componentes/Contador'
+//import Nome from './componentes/AlteraNome'
+import Dad from './componentes/direta/Pai'
 
 
 
 // Algumas maneiras( sintaxes ) de fazer as declarações / 
- 
+
 /* Usando Arrow Function
     export default () =><View> <Primeiro></Primeiro></View>
 */
@@ -63,7 +67,7 @@ export default() => {
 }
 */
 
- // export default () => <Text>Primeiro Componente !!!!!</Text>
+// export default () => <Text>Primeiro Componente !!!!!</Text>
 
 // Todos as opcões são componentes funcionais (baseados em função)
 // Também existem componetes baseados em classes ( que em JS também são funções)
@@ -78,12 +82,29 @@ export default() => {
 export default () => (
     // par de chaves dentro de componentes textual é interpretado como JS
     // <Text> { 1 + 1 } </Text> - pelo visto isso serve para view tb?
-    <View style={style.App}> 
+    <View style={style.App}>
 
 
-        <Title principal="Cadastro de Produtos" secundario="Tela de casdastro"></Title>
+        {/**Importei e estou instanciando o componente pai, e ele vai ter acesso ao componente filho */}
+        <Dad></Dad>
 
-        <Botao></Botao>
+        
+
+        {/* testando useStates (Não userStates)
+        <Nome name1="Maria" name2="João"></Nome>
+        <Nome/>
+        */}
+
+        {/** chaves se não for string é porque quando são valores tipos primitivos , mas eu pesquisei e string também é um tipo primitivo?*/}
+
+        {/** 
+        <Contador valorInicial= {100} passo={2}></Contador>
+        <Contador/>
+        */}
+
+        {/* <Title principal="Cadastro de Produtos" secundario="Tela de casdastro"></Title>
+
+        <PrimeiroBotao/> */}
 
 
 
@@ -93,7 +114,7 @@ export default () => (
          * passar parametros é como passar atributos em HTML, mas não esquece de usar chaves se não for string.
          */}
 
-         {/*
+        {/*
         <MaiorMenor Max="3" Min="1"/>
         <MaiorMenor Max={12} Min={6}/>
         <CompPadrao></CompPadrao>
@@ -107,12 +128,12 @@ export default () => (
          */}
 
         {
-         //   <Desafio Start={100} End={200}></Desafio>
+            //   <Desafio Start={100} End={200}></Desafio>
         }
-        
+
 
     </View>
-    
+
 )
 
 // Dentro dos parametros do create passar um objeto, por isso tem o par de chaves
@@ -122,8 +143,8 @@ const style = StyleSheet.create({
     App: {
         // backgroundColor: '#A00',
         flexGrow: 1,
-        justifyContent: "center" ,// eixo principal - a coluna para mobile
+        justifyContent: "center",// eixo principal - a coluna para mobile
         alignItems: "center", // eixo cruzado - a linha para 
-        padding : 20
+        padding: 20
     }
 })

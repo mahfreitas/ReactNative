@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-native'
 
+//testar se colocar arrow function vai funcionar ou precisa ser props por causa dos atributos do button
 export default props => {
 
     /**
