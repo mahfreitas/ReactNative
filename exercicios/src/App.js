@@ -27,7 +27,8 @@ Quando é exportado como padrão (como o Componente Oficial), eu posso escolher 
 //import PrimeiroBotao from './componentes/Botao'
 //import Contador from './componentes/Contador'
 //import Nome from './componentes/AlteraNome'
-import Dad from './componentes/direta/Pai'
+//import Dad from './componentes/direta/Pai'
+import Dad from './componentes/indireta/Pai'
 
 
 
@@ -85,7 +86,7 @@ export default () => (
     <View style={style.App}>
 
 
-        {/**Importei e estou instanciando o componente pai, e ele vai ter acesso ao componente filho */}
+        {/**Importei e estou instanciando o componente pai, e ele vai ter acesso ao componente filho, usei a  mesma tag  para comunicação direta e indireta */}
         <Dad></Dad>
 
         
