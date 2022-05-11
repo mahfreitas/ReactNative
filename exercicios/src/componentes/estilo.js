@@ -16,7 +16,7 @@ export default StyleSheet.create({
 
     txtGG : {
         fontSize: 32,
-        backgroundColor: '#ffb6c1'// qual é o motivo de as vezes usar ''e as veezes não?
+        //backgroundColor: '' qual é o motivo de as vezes usar ''e as veezes não?
     }
 })
 
