@@ -15,3 +15,8 @@ export default props => {
         )
     }
 }
+
+/**
+ * Essas renderizações condicionais estão sendo feita diretamenta no JS
+ * e estão retornando trechos de JSX
+ */

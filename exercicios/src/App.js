@@ -7,7 +7,7 @@ View is a container that supports layout with flexbox, style, some touch handlin
 */
 
 //importamos a VIEW para usar a tag como um container
-import { View, StyleSheet } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native'
 
 /*
 Usado para usar componentes textuais em jsx
@@ -30,8 +30,8 @@ Quando é exportado como padrão (como o Componente Oficial), eu posso escolher 
 //import Dad from './componentes/direta/Pai'
 //import Dad from './componentes/indireta/Pai'
 //import Contador from './componentes/contador/ContadorV2'
-import Diferenciar from './componentes/Diferenciar'
-
+//import Diferenciar from './componentes/Diferenciar'
+import ParImpar from './componentes/ParImpar'
 
 
 // Algumas maneiras( sintaxes ) de fazer as declarações / 
@@ -85,12 +85,18 @@ export default() => {
 export default () => (
     // par de chaves dentro de componentes textual é interpretado como JS
     // <Text> { 1 + 1 } </Text> - pelo visto isso serve para view tb?
-    <View style={style.App}>
+    <SafeAreaView style={style.App}>
+        {/**SafeAreaView usa uma área que será visivel em ambos (Ios e Android) de acordo a área disponível para visualização em cada um 
+         * Quer dizer que a área view vai estar configurada para ter o mesmo comportamento tanto no ios quanot no android
+        */}
 
+        <ParImpar numero = {229}/>
+       
 
-        <Diferenciar/>
-
-       {/** <Contador/>*/} 
+       {/*
+        <Contador/>
+         <Diferenciar/>
+        */} 
 
 
         {/**Importei e estou instanciando o componente pai, e ele vai ter acesso ao componente filho, usei a  mesma tag  para comunicação direta e indireta */}
@@ -140,7 +146,7 @@ export default () => (
         }
 
 
-    </View>
+    </SafeAreaView>
 
 )
 
